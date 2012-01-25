@@ -1,0 +1,37 @@
+= form_tag :action => :send_data do
+  -#.field
+    = text_field_tag :twitter_id, "", :placeholder => "Twitter ID（任意）"
+  .field
+    = text_field_tag :hate, "", :placeholder => "きらいなもの・こと（ 30 文字くらい）", :required => "required", :maxlength => "30"
+  .actions
+    = submit_tag "おくる"
+  .cf
+
+%section#hates
+  %h2 これきらい？
+  - if @hates.blank?
+    %article
+      とくにないね
+
+  - else
+    - @hates.each do |h|
+      %article{:id => "id-#{h.id}"}
+        .ihate= h.hate
+        .sympathy
+          = button_tag "ぼくもきらい / 1 人", :value => h.id, :id => "me_too_#{h.id}", :class => "sympathy_button"
+        .cf
+
+%section#histories
+  %h2 みんなきらい
+  - if @history.blank?
+    %article
+      まだないね
+  
+  - else
+    - @history.each do |h|
+      %article{:id => "history-id-#{h.id}"}
+        .ihate= h.hate
+        .sympathy= "#{h.sympathy} 人"
+        .cf
+
+

@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  hate_id: 1
+  sympathy: 1
+
+two:
+  hate_id: 1
+  sympathy: 1

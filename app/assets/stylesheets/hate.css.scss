@@ -1,0 +1,99 @@
+@import "_css3pointoh.css.scss";
+$blue: #3299BB;
+$gray: #BCBCBC;
+$light-gray: #E9E9E9;
+$black: #424242;
+$accent-color: #FF9900;
+
+@mixin for-all-input-element {
+  font: 0.9em Helvetica, Arial, sans-serif;
+  text-shadow: 0 1px 0 #fff;
+  @include transition(border-color .218s);
+  @include border-radius(2px);
+  border: solid 1px $light-gray;
+  padding: 10px 15px;
+}
+
+@mixin active-input-element {
+  border-color: #999;
+  @include box-shadow(0 1px 2px rgba(0, 0, 0, 0.15));
+}
+
+::-moz-selection {background: $accent-color; color: #fff; text-shadow: none} /* selected text */
+::selection {background: $accent-color; color: #fff; text-shadow: none} /* selected text */
+
+// tag
+
+body {
+  color: $black;
+}
+
+a {
+  color: $blue;
+}
+
+h1, h2 {
+  font: bold 1.5em Helvetica, Arial, sans-serif;
+  margin: 20px 0;
+}
+
+h2 {
+  font: bold 1.3em Helvetica, Arial, sans-serif;
+}
+
+footer {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+
+#logo {
+  text-align: center;
+}
+
+article {
+  font-size: 1.3em;
+  border-bottom: 1px dashed $gray;
+  padding-bottom: 10px;
+  margin: 30px 0;
+  .sympathy {
+    float: right;
+  }
+  .ihate {
+    float: left;
+  }
+}
+
+// form elements
+
+.field,
+.actions {
+  display: inline-block;
+}
+
+.field {
+  width: 89%;
+}
+
+input[type="text"] {
+  @include for-all-input-element;
+  width: 95%;
+  font-size: 1.3em;
+  margin: 10px 0;
+  &:focus { @include active-input-element; }
+}
+
+input[type="submit"], button {
+  color: $black;
+  text-decoration: none;
+  position: relative;
+  background: $light-gray;
+  @include linear-gradient-background(#F5F5F5, #F1F1F1);
+  @include for-all-input-element;
+  &:hover {
+    @include active-input-element;
+  }
+  &:active {
+    border-color: $gray;
+  }
+}
