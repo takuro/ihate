@@ -59,11 +59,11 @@ module Ihate
     config.assets.version = '1.0'
 
     config.display_count = 30
-    config.recently_time = 1
+    config.recently_time = 10
 
     config.histories = 3
-    config.push_history_time = 1 # minutes
-    config.push_history_count = 10 # minutes
+    config.push_history_time = 30 # minutes
+    config.push_history_count = 100
   end
 end
 
